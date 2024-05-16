@@ -1,0 +1,64 @@
+/* CSS untuk tampilan keseluruhan */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Kontainer utama */
+.container {
+    display: flex;
+    height: 100%;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigasi menu */
+nav {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 200px; /* Lebar menu */
+    height: 100%;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Area utama */
+main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto; /* Scroll vertikal jika dibutuhkan */
+    box-sizing: border-box;
+}
+
+/* Tabel */
+table {
+    width: 100%; /* Lebar tabel 100% area utama */
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+}

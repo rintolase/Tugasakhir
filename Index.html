@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Import pustaka Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Analisis Sentimen Feedback Pengguna Capcut Dengan Support Vector Machine (SVM): Evaluasi Pengalaman Pengguna dan Daya Tarik Aplikasi Capcut</h1>
+    </header>
+
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showImportData()">Import Data</a></li>
+                <li><a href="#" onclick="showPreprocessing()">Preprocessing</a></li>
+                <li><a href="#" onclick="showTrainingData()">Training Data</a></li>
+                <li><a href="#" onclick="showTestingData()">Testing Data</a></li>
+                <li><a href="#" onclick="showVisualisasiData()">Visualisasi Data</a></li>
+            </ul>
+        </nav>
+
+        <main id="content">
+            <!-- Konten Import Data -->
+            <div id="importDataContent" style="display: none;">
+                <h2>Import Data</h2>
+                <p>Silakan pilih file CSV atau XLSX untuk diimpor.</p>
+                
+                <!-- Tombol Upload Data -->
+                <button onclick="triggerFileInput()">Upload Data</button>
+                
+                <!-- Elemen input file untuk membuka dialog file explorer -->
+                <input type="file" id="importDataInput" accept=".csv,.xlsx" style="display: none;" onchange="handleFileUpload(event)">
+                
+                <!-- Menampilkan nama file yang diunggah -->
+                <div id="uploadedFileName"></div>
+                
+                <!-- Dropdown untuk memilih jumlah data yang ingin ditampilkan -->
+                <label for="dataAmountSelect">Jumlah data yang ingin ditampilkan:</label>
+                <select id="dataAmountSelect" onchange="updateDataDisplay()">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+
+                <!-- Tabel untuk menampilkan data -->
+                <table id="fileDataTable"></table>
+            </div>
+
+            <!-- Konten lainnya -->
+            <div id="preprocessingContent" style="display: none;">
+                <h2>Halaman Preprocessing</h2>
+                <p>Proses Preprocessing akan membantu membersihkan dan mempersiapkan data.</p>
+                <button onclick="startPreprocessing()">Mulai Preprocessing</button>
+                <button onclick="downloadData()">Unduh Data</button>
+            </div>
+
+            <div id="trainingDataContent" style="display: none;">
+                <h2>Halaman Training Data</h2>
+                <p>Silakan melatih model menggunakan data yang telah di-preprocess.</p>
+                <button onclick="startTrainingData()">Mulai Klasifikasi SVM</button>
+            </div>
+
+            <div id="testingDataContent" style="display: none;">
+                <h2>Halaman Testing Data</h2>
+                <p>Silakan uji model menggunakan data pengujian.</p>
+                <button onclick="startTestingData()">Mulai Testing Data</button>
+            </div>
+
+            <div id="visualisasiDataContent" style="display: none;">
+                <h2>Hasil Klasifikasi SVM</h2>
+                <p>Hasil klasifikasi SVM berdasarkan analisis sentimen.</p>
+                <!-- Empat kotak untuk visualisasi -->
+                <div class="image-boxes">
+                    <div class="image-box" id="box1">
+                        <canvas id="chart1" width="400" height="200"></canvas>
+                    </div>
+                    <div class="image-box" id="box2">
+                        <canvas id="chart2" width="400" height="200"></canvas>
+                    </div>
+                    <div class="image-box" id="box3">
+                        <canvas id="chart3" width="400" height="200"></canvas>
+                    </div>
+                    <div class="image-box" id="box4">
+                        <canvas id="chart4" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
